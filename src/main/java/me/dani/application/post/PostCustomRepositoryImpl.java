@@ -10,7 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 @Repository
 @Transactional
-public class PostCustomRepositoryImpl implements PostCustomRepository {
+public class PostCustomRepositoryImpl implements PostCustomRepository<Post> {
 
     @Autowired
     EntityManager entityManager;
@@ -24,5 +24,10 @@ public class PostCustomRepositoryImpl implements PostCustomRepository {
     }
 
 
+    @Override
+    public void delete(Post entity) {
+        System.out.println("custom delete");
+        entityManager.remove(entity);
+    }
 
 }
