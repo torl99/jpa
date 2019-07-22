@@ -22,5 +22,6 @@ public class PostRepositoryTest {
 
         postRepository.findByPost();
         postRepository.delete(post);
+        postRepository.flush();
     }
 }
