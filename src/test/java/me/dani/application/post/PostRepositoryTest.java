@@ -1,5 +1,7 @@
 package me.dani.application.post;
 
+import static org.assertj.core.api.Assertions.assertThat;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,12 +17,15 @@ public class PostRepositoryTest {
 
     @Test
     public void crud() {
-        postRepository.findByPost();
         Post post = new Post();
         post.setTitle("hibernate");
+        assertThat(postRepository.contains(post)).isFalse();
+
         postRepository.save(post);
 
-        postRepository.findByPost();
+        assertThat(postRepository.contains(post)).isTrue();
+
+        
         postRepository.delete(post);
         postRepository.flush();
     }
