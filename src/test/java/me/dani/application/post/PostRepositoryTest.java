@@ -15,6 +15,6 @@ public class PostRepositoryTest {
 
     @Test
     public void crud() {
-
+        postRepository.findByPost();
     }
 }
